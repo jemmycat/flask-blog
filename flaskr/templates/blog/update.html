@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="posts-content">
+  <div class="posts">
+      <article class="post">
+          <section class="post-body">
+            <h1>编辑博客文章</h1>
+            <form action="" method="POST">
+                <label for="title">标题</label>
+                <input name="title" id="title" value="{{ request.form['title'] or post['title'] }}" required>
+            
+                <!-- <label for="author">作者</label>
+                <input type="text" id="author" name="author" value="{{ post.author }}" required> -->
+            
+                <label for="content">内容 (Markdown 格式)</label>
+                <!-- <textarea id="editor" name="content" required>{{ post.content }}</textarea> -->
+                <textarea name="body" id="editor">{{ request.form['body'] or post['body'] }}</textarea>
+            
+                <button type="submit">保存修改</button>
+            </form>
+      </section>
+      </article>
+  </div>
+</div>
+
+<script>
+  var easyMDE = new EasyMDE({ element: document.getElementById('editor') });
+</script>
+{% endblock %}

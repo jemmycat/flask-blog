@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }} - My Blog{% endblock %}
+
+{% block content %}
+<div class="posts-content">
+    <div class="posts">
+        <header>
+            <h1 class="post-title">{{ post.title }}</h1>
+        </header>
+        <div class="markdown-body"> 
+        <article class="post">
+            <section class="post-body">
+            <!-- <p>{{ post.body }}</p> -->
+             {{ post_body_html | safe}}
+        </section>
+        </article>
+    </div>
+    </div>
+</div>
+{% endblock %}
