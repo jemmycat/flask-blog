@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='easymde.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='github-markdown-light.min.css') }}">
     <script src="{{ url_for('static', filename='easymde.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='sidebar.js') }}"></script>
 </head>
 <header>
     {% block header %}{% endblock %}
@@ -19,4 +20,13 @@
     </div>
 </section>
 
-</div>
+    <!-- 悬浮侧边栏 -->
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
