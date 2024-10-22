@@ -17,7 +17,7 @@
       <h5><a href="{{ url_for('blog.post', id=post.id) }}">{{ post.title }}</a></h5>
     </div>
     <div class="post-content">
-      <p>{{ post.body_excerpt }}...</p>
+      <p>{{ post.body_excerpt | safe }}</p>
     </div>
     <div class="post-footer">
         <div class="info">

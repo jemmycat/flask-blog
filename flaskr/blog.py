@@ -23,6 +23,13 @@ def index():
         " FROM post p JOIN user u ON p.author_id = u.id"
         " ORDER BY created DESC"
     ).fetchall()
+    # 将 sqlite3.Row 转换为字典，并处理 Markdown 转换
+    posts = [dict(post) for post in posts]
+
+    # 将每篇文章的摘要转换为 Markdown 格式
+    for post in posts:
+        post['body_excerpt'] = markdown.markdown(post['body_excerpt'])
+
     return render_template("blog/index.html", posts=posts)
 
 

@@ -133,7 +133,7 @@ h6 {
 }
 
 
-.post-footer .tags {
+.post-footer .tags a {
   display: inline-block;
   font-size: 12px;
   margin-right: 5px
