@@ -1,7 +1,16 @@
 {% extends "base.html" %}
+
+{% block header %}
+<div class="profile-header">
+  <img src="https://image.written.cc/i/2024/10/14/670cae83cec9f.png" alt="User Avatar" class="profile-avatar">
+  <div class="profile-info">
+    <h1 class="profile-name">Jemmy</h1>
+    <p class="profile-description">35岁玩家，喜欢海岛冒险的相机和咖啡爱好者。忙碌于拯救攻城怪物，还没来得及好好介绍自己。</p>
+  </div>
+  </header>
+  {% endblock %}
+
 {% block content %}
-
-
 <div class="posts-content">
   <div class="posts">
       <article class="post">
@@ -10,12 +19,7 @@
             <form action="" method="POST">
                 <label for="title">标题</label>
                 <input name="title" id="title" value="{{ request.form['title'] or post['title'] }}" required>
-            
-                <!-- <label for="author">作者</label>
-                <input type="text" id="author" name="author" value="{{ post.author }}" required> -->
-            
                 <label for="content">内容 (Markdown 格式)</label>
-                <!-- <textarea id="editor" name="content" required>{{ post.content }}</textarea> -->
                 <textarea name="body" id="editor">{{ request.form['body'] or post['body'] }}</textarea>
             
                 <button type="submit">保存修改</button>

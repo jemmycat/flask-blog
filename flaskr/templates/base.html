@@ -10,58 +10,13 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='github-markdown-light.min.css') }}">
     <script src="{{ url_for('static', filename='easymde.min.js') }}"></script>
 </head>
+<header>
+    {% block header %}{% endblock %}
+</header>
+<section class="content">
+    <div class="main-content">
+        {% block content %}{% endblock %}
+    </div>
+</section>
 
-<nav>
-  <h1><a href="{{ url_for('index') }}">Flaskr</a></h1>
-  <ul>
-    {% if g.user %}
-      <li><span>{{ g.user['username'] }}</span>
-      <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
-    {% else %}
-      <li><a href="{{ url_for('auth.register') }}">Register</a>
-      <li><a href="{{ url_for('auth.login') }}">Log In</a>
-    {% endif %}
-  </ul>
-</nav>
-
-
-<body>
-  <div class="container">
-      <header>
-          <div class="profile-header">
-              <div class="profile-info">
-                  <h1 class="profile-name">Jemmy</h1>
-                  <p class="profile-status">豆豆柴 水晶塔</p>
-                  <p class="profile-level">LV1 进阶冒险者 | UID: 10358885</p>
-                  <p class="profile-description">35岁玩家，喜欢海岛冒险的相机和咖啡爱好者。忙碌于拯救攻城怪物，还没来得及好好介绍自己。</p>
-              </div>
-          </div>
-      </header>
-      <div class="main-wrapper">
-          <div class="sidebar">
-              <button class="sidebar-btn">
-                  <a href=#>我的角色</a>
-              </button>
-              <button class="sidebar-btn">
-                  <a href=#>我的帖子</a>
-              </button>
-              <button class="sidebar-btn">
-                  <a href=#>我的动态</a>
-              </button>
-              <button class="sidebar-btn">
-                  <a href=#>我的游戏</a>
-              </button>
-              <button class="sidebar-btn">
-                  <a href=#>我的运动</a>
-              </button>
-          </div>
-          <div class="main-content">
-              <div class="posts">
-                  <main>
-                      {% block content %}{% endblock %}
-                  </main>
-              </div>
-          </div>
-      </div>
-  </div>
-</body>
+</div>

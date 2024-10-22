@@ -1,50 +1,34 @@
 {% extends 'base.html' %}
 
 {% block header %}
-<h1>{% block title %}Posts{% endblock %}</h1>
-{% if g.user %}
-<a class="action" href="{{ url_for('blog.create') }}">New</a>
-{% endif %}
-{% endblock %}
-
-{% block content %}
-{% for post in posts %}
-
-<div class="post summary">
-  <div class="thumbnail" style="height: auto;">
-    <a href=#>
-      <!-- <img src="" alt="" title="" loading="lazy"> -->
-    </a>
+<div class="profile-header">
+  <img src="https://image.written.cc/i/2024/10/14/670cae83cec9f.png" alt="User Avatar" class="profile-avatar">
+  <div class="profile-info">
+    <h1 class="profile-name">Jemmy</h1>
+    <p class="profile-description">35岁玩家，喜欢海岛冒险的相机和咖啡爱好者。忙碌于拯救攻城怪物，还没来得及好好介绍自己。</p>
   </div>
+  </header>
+  {% endblock %}
+  {% block content %}
 
-  <div class="post-text grow">
-
+  {% for post in posts %}
+  <div class="post-list">
     <div class="post-title">
-      <h3><a href="{{ url_for('blog.post', id=post.id) }}">{{ post.title }}</a></h3>
+      <h5><a href="{{ url_for('blog.post', id=post.id) }}">{{ post.title }}</a></h5>
     </div>
-
-    <!-- post-summary -->
-    <p>{{ post.body_excerpt }}...</p>
-    <a href="{{ url_for('blog.post', id=post.id) }}">阅读更多</a>
-
-    <!-- <div class="post-content">
-      <div class="p_part">
-        <p>{{ post.title }}</p>
-      </div>
-    </div> -->
+    <div class="post-content">
+      <p>{{ post.body_excerpt }}...</p>
+    </div>
     <div class="post-footer">
-      <div class="meta">
         <div class="info">
           {% for tag in post.tags.split(',') %}
-          <a class="tags" href="{{ url_for('blog.index', tag=tag.strip()) }}">{{ tag.strip() }}</a>
+          <a class="tags" href="{{ url_for('blog.index', tag=tag.strip()) }}">#{{ tag.strip() }}</a>
           {% endfor %}
         </div>
-      </div>
     </div>
-
   </div>
-</div>
-{% if not loop.last %}
-{% endif %}
-{% endfor %}
-{% endblock %}
+
+  {% if not loop.last %}
+  {% endif %}
+  {% endfor %}
+  {% endblock %}
